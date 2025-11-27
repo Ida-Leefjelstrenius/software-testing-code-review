@@ -19,6 +19,9 @@ public class SearchString {
         String fileName = inputParts[2];
 
         File file = new File(fileName);
+        if (!file.exists()) {
+            System.out.println("File does not exits");
+        }
 
         try {
             Scanner fileScanner = new Scanner(file);
