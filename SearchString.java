@@ -9,8 +9,9 @@ public class SearchString {
         String input = userScanner.nextLine();
 
         String[] inputParts= input.split(" ");
-
-        if (inputParts.length != 3) {
+        
+        String searchCommand = "search";
+        if (inputParts.length != 3 || !inputParts[0].equals(searchCommand)) {
             System.out.println("Please give the right input format: search<pattern> <file> ");
             return;
         }
@@ -31,6 +32,8 @@ public class SearchString {
                     System.out.println(fileLine);
                 }
             }
+            fileScanner.close();
+            userScanner.close();
         } catch (FileNotFoundException e) {
             System.out.println("Could not open the file");
         }   
