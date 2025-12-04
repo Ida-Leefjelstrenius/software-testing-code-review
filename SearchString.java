@@ -11,7 +11,7 @@ public class SearchString {
         String[] inputParts= input.split(" ");
 
         if (inputParts.length != 3) {
-            System.out.println("Please give the right input format: search<pattern> <file>");
+            System.out.println("Please give the right input format: search<pattern> <file> ");
             return;
         }
 
