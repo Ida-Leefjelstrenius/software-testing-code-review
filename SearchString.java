@@ -5,19 +5,15 @@ import java.util.Scanner;
 public class SearchString {
 
     public static void main(String[] args) {
-        Scanner userScanner = new Scanner(System.in);
-        String input = userScanner.nextLine();
-
-        String[] inputParts= input.split(" ");
+        String command = args[0];
+        String pattern = args[1];
+        String fileName = args[2];
         
         String searchCommand = "search";
-        if (inputParts.length != 3 || !inputParts[0].equals(searchCommand)) {
-            System.out.println("Please give the right input format: search<pattern> <file> ");
+        if (command.equals(searchCommand)) {
+            System.out.println("Please give the right input format: search <pattern> <file> ");
             return;
         }
-
-        String pattern = inputParts[1];
-        String fileName = inputParts[2];
 
         File file = new File(fileName);
         if (!file.exists()) {
@@ -33,7 +29,6 @@ public class SearchString {
                 }
             }
             fileScanner.close();
-            userScanner.close();
         } catch (FileNotFoundException e) {
             System.out.println("Could not open the file");
         }   
